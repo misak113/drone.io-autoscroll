@@ -20,11 +20,11 @@
 	}
 
 	function setCookie(value) {
-		document.cookie = cookieKey + "=" + parseInt(value);
+		document.cookie = cookieKey + "=" + parseInt("" + (value + 0));
 	}
 
 	function isCookie() {
-		return document.cookie.indexOf(cookieKey + "=" + parseInt(true)) !== -1;
+		return document.cookie.indexOf(cookieKey + "=1") !== -1;
 	}
 
 	function handleScrolling() {
