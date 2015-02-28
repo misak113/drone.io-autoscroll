@@ -2,7 +2,7 @@
   "manifest_version": 2,
   "name": "drone.io autoscroll",
   "description": "This extension make auto-scrolling on bottom of build page in drone.io CI",
-  "version": "1.0",
+  "version": "1.0.1",
   "permissions": [
     "tabs",
     "https://drone.io/*"
