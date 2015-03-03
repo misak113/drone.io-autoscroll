@@ -10,7 +10,7 @@
 		+ '<input type="checkbox" id="' + checkboxId + '" style="display: inline-block; margin-top: -1px;"> '
 		+ '<img src="' + chrome.extension.getURL('icon.png') + '" style="display: inline-block; margin-right: 2px;">'
 		+ '<span style="font-weight: bold; font-size: 15px;">autoscroll</span></label>');
-	var buildPatern = /^https:\/\/drone\.io\/[^\/]+\/[^\/]+\/[^\/]+\/\d$/;
+	var buildPatern = /^https:\/\/drone\.io\/[^\/]+\/[^\/]+\/[^\/]+\/\d+$/;
 	var height = $(this).height();
 
 	function isHeightChanged() {
