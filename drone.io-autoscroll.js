@@ -11,11 +11,12 @@
 		+ '<img src="' + chrome.extension.getURL('icon.png') + '" style="display: inline-block; margin-right: 2px;">'
 		+ '<span style="font-weight: bold; font-size: 15px;">autoscroll</span></label>');
 	var buildPatern = /^https:\/\/drone\.io\/[^\/]+\/[^\/]+\/[^\/]+\/\d+$/;
-	var height = $(this).height();
+	var height = $(document).height();
+	var changeHeightInterval;
 
 	function isHeightChanged() {
-		var isChanged = $(this).height() != height;
-		height = $(this).height();
+		var isChanged = $(document).height() != height;
+		height = $(document).height();
 		return isChanged;
 	}
 
@@ -28,19 +29,19 @@
 	}
 
 	function handleScrolling() {
-		if(isHeightChanged) {
-			$(this).scrollTop($(document).height());
+		if(isHeightChanged()) {
+			$(document).scrollTop($(document).height());
 		}
 	};
 
 	function bindAutoscroll() {
 		setCookie(true);
-		$(document).bind('DOMSubtreeModified', handleScrolling);
+		changeHeightInterval = setInterval(handleScrolling, 200);
 	}
 
 	function unbindAutoscroll() {
 		setCookie(false);
-		$(document).unbind('DOMSubtreeModified', handleScrolling);
+		clearInterval(changeHeightInterval);
 	}
 
 	function checkScrolling() {
